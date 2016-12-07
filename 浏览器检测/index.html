@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>检测浏览器</title>
+    <script type="text/javascript" src="browserdetect.js"></script>
+</head>
+<body>
+<script>
+//alert("浏览器名称,"+navigator.appName);
+//alert("浏览器用户代理字符串,"+navigator.userAgent)
+//alert("浏览所在的系统："+navigator.platform)
+
+//alert("浏览器名称："+BrowserDetect.browser)
+//alert("浏览器版本："+BrowserDetect.version)
+//alert("所在系统："+BrowserDetect.OS)
+
+
+//检测浏览器名称是否等于IE并且版本小于7，输出打印字符串
+//if (BrowserDetect.browser=='Internet Explorer'&& BrowserDetect.version<7){
+//alert("你的浏览器太低了");
+//}
+
+
+
+
+//浏览器插件的属性
+/*
+for(var i=0;i<navigator.plugins.length;i++){
+//    document.write("浏览器插件名："+navigator.plugins[i].name+"<br>");
+//    document.write("插件磁盘文件名："+navigator.plugins[i].filename+"<br>")
+//    document.write("插件描述信息："+navigator.plugins[i].description+"<br>")
+//    document.write("插件数组的元素个数："+navigator.plugins[i].length+"<br>")
+}
+ */
+
+
+
+
+//检测非IE浏览器插件是否存在
+/*function hasPlugin(name) {
+    var name=name.toLowerCase();//toLowerCase转换为小写，
+    for(var i=0;i<navigator.plugins.length;i++){
+        if (navigator.plugins[i].name.toLowerCase().indexOf(name)>-1){  //如果浏览器插件名称中有flash名称，并且是转换小写后，再查找flash名称，如果有返回ture，否则返回false
+        return true;
+        }
+    }
+    return false;
+}
+alert(hasPlugin("Flash"));    //检测flash是否存在
+alert(hasPlugin("java"));     //检测java是否存在*/
+
+
+
+
+//检测IE浏览器的控件是否存在
+/*
+function hasIEPlugin(name) {
+    try{                            //这里叫做尝试去执行一段代码，如果有误，就去执行catch语句
+        new ActiveXObject(name);   //这里的name必须是控件的唯一标识符ID
+        return true;                //如果new成功了，没有产生错误，那么就不去执行catch语句
+    }catch(e) {
+        return false
+    }
+}
+alert(hasIEPlugin("ShockwaveFlash.ShockwaveFlash")); //这里是flash唯一标识符
+*/
+
+
+
+ /*
+//跨浏览器是否支持flash,也就是所有浏览器是否支持flash
+//1、检测非IE浏览器的控件是否存在
+function hasPlugin(name) {
+ var name=name.toLowerCase();//toLowerCase转换为小写，
+ for(var i=0;i<navigator.plugins.length;i++){
+ if (navigator.plugins[i].name.toLowerCase().indexOf(name)>-1){  //如果浏览器插件名称中有flash名称，并且是转换小写后，再查找flash名称，如果有返回ture，否则返回false
+ return true;
+ }
+ }
+ return false;
+ }
+ //2、检测IE浏览器的控件是否存在
+function hasIEPlugin(name) {
+    try{                            //这里叫做尝试去执行一段代码，如果有误，就去执行catch语句
+        new ActiveXObject(name);   //这里的name必须是控件的唯一标识符ID
+        return true;                //如果new成功了，没有产生错误，那么就不去执行catch语句
+    }catch(e) {
+        return false
+    }
+}
+
+//3、跨浏览器是否支持flash
+function hasFlash() {
+    //首先，先去检测非IE的浏览器
+    var result=hasPlugin("Flash"); //如果返回ture，说明检测到了，并且不是IE浏览器
+    if (!result){                   //如果没有检测到，说明这个浏览器没有flash，或者它可能是IE浏览器
+    result=hasIEPlugin("ShockwaveFlash.ShockwaveFlash");
+    }
+    return result;
+}
+alert(hasFlash());
+*/
+
+
+
+
+//客户端检测
+/*
+// 能力检测
+var width=window.innerWidth;
+//alert(width); //先查看他们的属性，如果都是number,而如果那个浏览器不是number，那么我们就判断他不是number类型，就去获取他的宽度？比方下面
+if(typeof width !="number"){
+    width=document.documentElement.clientWidth;
+}
+    alert(width)
+*/
+
+//3.用户代理检测
+//document.write(navigator.userAgent);
+//Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.59 Safari/537.36
+
+//4.浏览器引擎
+//document.write(navigator.userAgent);
+var client = function () {
+     //创建一个对象
+    //引擎
+    var engine={
+        IE:false,           //这个属性用于确定是否是IE引擎
+        Gecko:false,
+        WebKit:false,
+        KHTML:false,
+        opera:false,
+
+        //引擎的版本
+        ver:0
+    };
+
+    if (window.opera){
+        engine.opera=true;
+        engine.ver=window.opera.version();
+    }
+
+    return {              //返回一个对象，可以同时返回引擎，浏览器和系统的对象
+        engine:engine    //前一个engine是属性，后一个engine是对象值
+    };
+}();                             //自我执行，并赋值
+if (client.engine.opera){
+    alert(client.engine.ver);
+}
+//alert(client.engine.ie);       //获取ie
+//alert(client.engine.ver);       //获取ie
+
+//alert(client.opera.ver);
+//window对象支持opera属性
+//alert(client.engine.ver);
+//alert(client.engine.ie);
+//alert(client.engine.ver);
+
+
+</script>
+
+</body>
+</html>
