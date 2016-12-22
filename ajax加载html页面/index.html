@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ajax加载html页面</title>
+    <script src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/load.js"></script>
+    <link rel="stylesheet" href="css/css.css" type="text/css"/>
+</head>
+<style>
+    h2{
+        color: chocolate;
+        font-size: 30px;
+        }
+</style>
+<body>
+<div id="wrapper">
+    <h1>ajax ... nettuts</h1>
+    <ul id="nav">
+        <li><a href="index.html">welcome</a></li>
+        <li><a href="content/1.html"  onload="load()">about</a></li>
+        <li><a href="content/2.html">portfolio</a></li>
+        <li><a href="content/3.html">contact</a></li>
+        <li><a href="content/4.html">terms</a></li>
+    </ul>
+    <div id="content">
+        <h2>Welcome!</h2>
+        <p>Hi, welcome to the demonstration for the NETTUTS tutorial - "How to Load In and Animate Content with jQuery"</p>
+        <p>In this tutorial we will be taking your average everyday website and enhancing it with jQuery. We will be adding ajax functionality so that the content loads into the relevant container instead of the user having to navigate to another page. We will also be integrating some awesome effects...</p>
+    </div>
+    <div id="foot">www.minigui.com.cn</div>
+</div>
+</body>
+</html>
