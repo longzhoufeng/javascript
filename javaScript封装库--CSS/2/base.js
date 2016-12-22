@@ -96,6 +96,7 @@ Base.prototype.addClass = function (className) {
 	return this;
 };
 
+
 ///移除class
 Base.prototype.removeClass = function (className) {
 	for (var i=0;i<this.elements.length;i++){
