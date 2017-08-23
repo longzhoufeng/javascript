@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>scope</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+    <script>
+    	var val="aaaaa"
+	function foo() {
+		var val = 'hello';
+		function bar() {
+			// function baz() {
+			// 	var val = 'world'
+			// 	return val
+			// }
+			// console.log(baz())
+			console.log("1"+val); //=> hello
+		}
+		bar();
+		console.log("2"+val);
+	}
+	foo();
+	console.log("3"+val);
+    </script>
+</body>
+</html>
