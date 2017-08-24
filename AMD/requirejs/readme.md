@@ -30,3 +30,5 @@ main.js
 	        });
 	    })
 	});
+	
+baseUrl路径是相对html
