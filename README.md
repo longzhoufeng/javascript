@@ -2,7 +2,7 @@
 
 ## 目录
 
-1. [javascript](javascript/readme.md)
+1. [javascript](javascript)
 1. [AMD](docs/text.md)
 1. [段落](docs/paragraph.md)
 1. [数值](docs/number.md)
