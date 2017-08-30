@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        button {
+            margin: 10px;
+        }
+
+        div {
+            color: blue;
+            font-weight: bold;
+        }
+
+        span {
+            color: red;
+        }
+    </style>
+    <script type="text/javascript" src="js/jquery.v2.2.2.min.js"></script>
+</head>
+<body>
+<button id="btn1">Button #1</button>
+<button id="btn2">Button #2</button>
+<div><span id="sP1">0</span> button #1 clicks.</div>
+<div><span id="sP2">0</span> button #2 clicks.</div>
+
+<script>
+    $("#btn1").click(function () {
+        fn($("#sP1"));
+        alert(1)
+    });
+
+    $("#btn2").click(function () {
+        $("#btn1").trigger("click");
+        fn($("#sP2"));
+    });
+
+    function fn(j) {
+        var n = parseInt(j.text(), 10);
+        j.text(n + 1);
+    }
+</script>
+</body>
+</html>

@@ -17,7 +17,6 @@
 
 // var  myDate=new Date()
 // myDate.setDate(myDate.getDate()+3)
-
 // document.cookie="mynameis="+encodeURI("longzhoufeng")+ ";expires="+myDate.toGMTString();
 // document.cookie="age=30"
 // console.log(decodeURI(document.cookie))
@@ -28,8 +27,8 @@
 //3、把上面的封装成一个函数,其中有三个参数是在变化的，key值，value值，T时间
 
 function setCookie(key,value,t){
-	var  myDate=new Date()
-	myDate.setDate(myDate.getDate()+t)
+    var myDate = new Date();
+    myDate.setDate(myDate.getDate() + t);
 	document.cookie=key+"="+value+ ";expires="+myDate.toGMTString();
 }
 
@@ -78,8 +77,8 @@ window.onload = function() {
 	oLogin.onclick = function() {
 		alert('登陆成功');
 		setCookie('username', oUsername.value, 5);
-		
-	}
+
+    };
 	
 	oDel.onclick = function() {
 		removeCookie('username');
