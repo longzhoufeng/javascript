@@ -73,8 +73,8 @@ When you use zoom feature, copy image "zoomico.png" in the same folder of jquery
 
     $(document).ready(
   	 function() { 
-     			$("html").niceScroll();
-  		}
+     		$("html").niceScroll();
+  	}
  	);
 
 注意：一定要放在 $(document).ready 中进行初始化！
@@ -89,9 +89,11 @@ When you use zoom feature, copy image "zoomico.png" in the same folder of jquery
 	$("#mydiv").getNiceScroll().resize();
 
 滚动到某个位置：
+	// Scroll X Axis；第一个参数为滚动的位置，第二个为滚动需要的时间
+	$("#mydiv").getNiceScroll(0).doScrollLeft(x, duration); 
 
-	$("#mydiv").getNiceScroll(0).doScrollLeft(x, duration); // Scroll X Axis；第一个参数为滚动的位置，第二个为滚动需要的时间
-	$("#mydiv").getNiceScroll(0).doScrollTop(y, duration); // Scroll Y Axis
+	// Scroll Y Axis
+	$("#mydiv").getNiceScroll(0).doScrollTop(y, duration); 
 
 
 
