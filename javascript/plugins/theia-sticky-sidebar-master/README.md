@@ -1,6 +1,4 @@
-# Theia Sticky Sidebar
-
-![Theia Sticky Sidebar logo](https://raw.githubusercontent.com/liviucmg/theia-sticky-sidebar/master/assets/logo.png "Theia Sticky Sidebar logo")
+﻿# Theia Sticky Sidebar
 
 Glues your website's sidebars (or any vertical column for that matter), making them permanently visible when scrolling up and down. Useful when a sidebar is too tall or too short compared to the rest of the content. Works with virtually any design and supports multiple sidebars.
 
@@ -8,13 +6,13 @@ Also available as a [WordPress plugin](http://codecanyon.net/item/theia-sticky-s
 
 Check out these examples:
 
-[3 columns example](http://htmlpreview.github.io/?https://github.com/liviucmg/theia-sticky-sidebar/blob/master/examples/3-columns.html)
+[3 columns example](https://longzhoufeng.github.io/javascript/plugins/theia-sticky-sidebar-master/examples/3-columns.html)
 
-[4 columns example](http://htmlpreview.github.io/?https://github.com/liviucmg/theia-sticky-sidebar/blob/master/examples/4-columns.html)
+[4 columns example](https://longzhoufeng.github.io/javascript/plugins/theia-sticky-sidebar-master/examples/4-columns.html)
 
-[Bootstrap 4 example](http://htmlpreview.github.io/?https://github.com/liviucmg/theia-sticky-sidebar/blob/master/examples/bootstrap-v4.html)
+[Bootstrap 4 example](https://longzhoufeng.github.io/javascript/plugins/theia-sticky-sidebar-master/examples/bootstrap-v4.html)
 
-[Foundation example](http://htmlpreview.github.io/?https://github.com/liviucmg/theia-sticky-sidebar/blob/master/examples/foundation.html)
+[Foundation example](https://longzhoufeng.github.io/javascript/plugins/theia-sticky-sidebar-master/examples/foundation.html)
 
 ## Install
 
