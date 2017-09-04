@@ -6,13 +6,13 @@ Also available as a [WordPress plugin](http://codecanyon.net/item/theia-sticky-s
 
 Check out these examples:
 
-[3 columns example](https://longzhoufeng.github.io/javascript/plugins/theia-sticky-sidebar-master/examples/3-columns.html)
+[3 columns example](https://longzhoufeng.github.io/jquery/plugins/theia-sticky-sidebar-master/examples/3-columns.html)
 
-[4 columns example](https://longzhoufeng.github.io/javascript/plugins/theia-sticky-sidebar-master/examples/4-columns.html)
+[4 columns example](https://longzhoufeng.github.io/jquery/plugins/theia-sticky-sidebar-master/examples/4-columns.html)
 
-[Bootstrap 4 example](https://longzhoufeng.github.io/javascript/plugins/theia-sticky-sidebar-master/examples/bootstrap-v4.html)
+[Bootstrap 4 example](https://longzhoufeng.github.io/jquery/plugins/theia-sticky-sidebar-master/examples/bootstrap-v4.html)
 
-[Foundation example](https://longzhoufeng.github.io/javascript/plugins/theia-sticky-sidebar-master/examples/foundation.html)
+[Foundation example](https://longzhoufeng.github.io/jquery/plugins/theia-sticky-sidebar-master/examples/foundation.html)
 
 ## Install
 
