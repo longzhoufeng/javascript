@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="application/javascript" src="../js/angular.js"></script>
+
+</head>
+<body>
+<div ng-app>
+    <!--ng-controller控制器-->
+    <div ng-controller="firstController">
+        <!--这是angular表达式-->
+        <input type="text" ng-model="name">
+
+        <input type="text" ng-model="data.count">
+        {{ name }}--{{ count }}-{{ data.name }}-{{ data.count }}
+    </div>
+</div>
+<script>
+
+</script>
+<script type="application/javascript" src="mutilController.js"></script>
+</body>
+</html>
