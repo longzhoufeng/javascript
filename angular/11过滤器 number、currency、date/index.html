@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div ng-app="myApp">
+    <!--ng-controller控制器-->
+    <div ng-controller="firstController">
+        <p>1、数字默认，每三位加一个逗号输出:12,345,666,667</p>
+       {{ 12345666667|number }}
+
+        <p>number加一个参数3，保留小数点三位数输出：12,345,666,667.000</p>
+        {{ 12345666667|number:3 }}
+
+        <p>2、货币：currency</p>
+        {{ 99888|currency:"RMB" }}
+
+        <p>3、日期：data</p>
+        {{ today|date:"medium"}}<br>
+        {{ today|date:"short"}}<br>
+        {{ today|date:"fullDate"}}<br>
+        {{ today|date:"longDate"}}<br>
+        {{ today|date:"mediumDate"}}<br>
+        {{ today|date:"shortDate"}}<br>
+        {{ today|date:"mediumTime"}}<br>
+        {{ today|date:"shortTime"}}<br>
+
+        <p>年</p>
+        {{ today|date:"y"}}<br>
+        {{ today|date:"yy"}}<br>
+        {{ today|date:"yyyy"}}<br>
+
+        <p>月</p>
+        {{ today|date:"M"}}<br>
+        {{ today|date:"MM"}}<br>
+        {{ today|date:"MMM"}}<br>
+        {{ today|date:"MMMM"}}<br>
+
+        <p>日</p>
+        {{ today|date:"d"}}<br>
+        {{ today|date:"dd"}}<br>
+         <p>周</p>
+        {{ today|date:"EEE"}}<br>
+        {{ today|date:"EEEE"}}<br>
+
+
+        <p>小时</p>
+        {{ today|date:"HH"}}<br>
+        {{ today|date:"H"}}<br>
+        {{ today|date:"h"}}<br>
+        {{ today|date:"hh"}}<br>
+
+        <p>分</p>
+        {{ today|date:"m"}}<br>
+        {{ today|date:"mm"}}<br>
+
+         <p>秒</p>
+        {{ today|date:"s"}}<br>
+        {{ today|date:"ss"}}<br>
+        <p>毫秒</p>
+        {{ today|date:"sss"}}<br>
+
+        <p>日期格式化：</p>
+        {{ today|date:"y-M-d H:m:s" }}
+    </div>
+</div>
+
+<script type="application/javascript" src="../js/angular.js"></script>
+<script type="application/javascript" src="mutilController.js"></script>
+</body>
+</html>
