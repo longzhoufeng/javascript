@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
+    <style>
+        ul {
+            margin: 0;
+            padding: 0;
+            margin-bottom: 30px;
+        }
+    </style>
+    <script type="application/javascript" src="../js/angular.js"></script>
+</head>
+<body>
+<div ng-app="myApp">
+    <div ng-controller="firstController">
+        <p>分三大块：</p>
+        <p>1渲染指令:
+            <spn>ng-bind==></spn>
+            <span ng-bind="1+3"></span>
+        </p>
+        <p>2渲染指令:
+            <spn>ng:bind==></spn>
+             <span ng:bind="1+3"></span>
+        </p>
+         <p>3渲染指令:
+            <spn>data-ng-bind==></spn>
+             <span data-ng-bind="1+3"></span>
+        </p>
+         <p>4渲染指令:
+            <spn>x-ng-ind==></spn>
+             <span x-ng-ind="1+3"></span>
+        </p>
+        <p>5、ng-bind-template:
+            <span ng-bind-template="{{3+6}}"></span>
+        </p>
+         <p>6、ng-repeat:
+            <span ng-repeat="item in users">
+                <label>{{ item.name }}</label>
+                <label>{{ item.age }}</label>
+            </span>
+        </p>
+
+        <p>7、ng-include，里面必须的要一个单引号：
+            <span ng-include="'main.html'"></span>
+        </p>
+
+    </div>
+</div>
+<script type="application/javascript" src="mutilController.js"></script>
+</body>
+</html>

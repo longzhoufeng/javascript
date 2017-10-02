@@ -15,8 +15,8 @@ var myApp = angular.module("myApp", [], function ($provide) {
     $provide.factory("CustomFactory", function () {
         return [3,2,3,5,66,467]
     });
-    
-    
+
+
    //自定义服务，返回的东西必须是对象，必须是一个引用类型
     $provide.service("CustomServiceArray",function () {
         return ["自定义服务数组"]
