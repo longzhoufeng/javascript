@@ -1,0 +1,732 @@
+/** minigui-v1.0.0 MIT License By http://www.minigui.com.cn */
+.minigui-inline, img {
+    display: inline-block;
+    vertical-align: middle
+}
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 400
+}
+.minigui-edge, .minigui-header, .minigui-inline, .minigui-main {
+    position: relative
+}
+.minigui-btn, .minigui-edge, .minigui-inline, img { vertical-align: middle }
+blockquote, body, button, dd, div, dl, dt, form, h1, h2, h3, h4, h5, h6, input, li, ol, p, pre, td, textarea, th, ul { margin: 0; padding: 0; -webkit-tap-highlight-color: rgba(0, 0, 0, 0) }
+a:active, a:hover { outline: 0 }
+img { border: none }
+li { list-style: none }
+table { border-collapse: collapse; border-spacing: 0 }
+h4, h5, h6 { font-size: 100% }
+button, input, optgroup, option, select, textarea { font-family: inherit; font-size: inherit; font-style: inherit; font-weight: inherit; outline: 0 }
+pre { white-space: pre-wrap; white-space: -moz-pre-wrap; white-space: -pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word }
+body { line-height: 24px; font: 14px Helvetica Neue, Helvetica, PingFang SC, \5FAE\8F6F\96C5\9ED1, Tahoma, Arial, sans-serif }
+hr { height: 1px; margin: 10px 0; border: 0; clear: both }
+a { color: #333; text-decoration: none }
+a:hover { color: #777 }
+a cite { font-style: normal; *cursor: pointer }
+.minigui-border-box, .minigui-border-box * { box-sizing: border-box }
+.minigui-box, .minigui-box * { box-sizing: content-box }
+.minigui-clear { clear: both; *zoom: 1 }
+.minigui-clear:after { content: '\20'; clear: both; *zoom: 1; display: block; height: 0 }
+.minigui-inline { *display: inline; *zoom: 1 }
+.minigui-edge { display: inline-block; width: 0; height: 0; border-width: 6px; border-style: dashed; border-color: transparent; overflow: hidden }
+.minigui-edge-top { top: -4px; border-bottom-color: #999; border-bottom-style: solid }
+.minigui-edge-right { border-left-color: #999; border-left-style: solid }
+.minigui-edge-bottom { top: 2px; border-top-color: #999; border-top-style: solid }
+.minigui-edge-left { border-right-color: #999; border-right-style: solid }
+.minigui-elip { text-overflow: ellipsis; overflow: hidden; white-space: nowrap }
+.minigui-disabled, .minigui-icon, .minigui-unselect { -moz-user-select: none; -webkit-user-select: none; -ms-user-select: none }
+.minigui-disabled, .minigui-disabled:hover { color: #d2d2d2 !important; cursor: not-allowed !important }
+.minigui-circle { border-radius: 100% }
+.minigui-show { display: block !important }
+.minigui-hide { display: none !important }
+@font-face {
+    font-family: minigui-icon;
+    src: url(../font/iconfont.eot?v=220);
+    src: url(../font/iconfont.eot?v=220#iefix) format('embedded-opentype'), url(../font/iconfont.svg?v=220#iconfont) format('svg'), url(../font/iconfont.woff?v=220) format('woff'), url(../font/iconfont.ttf?v=220) format('truetype')
+}
+.minigui-icon { font-family: minigui-icon !important; font-size: 16px; font-style: normal; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale }
+.minigui-main { width: 1140px; margin: 0 auto }
+.minigui-header { z-index: 1000; height: 60px }
+.minigui-header a:hover { transition: all .5s; -webkit-transition: all .5s }
+.minigui-side { position: fixed; top: 0; bottom: 0; z-index: 999; width: 200px; overflow-x: hidden }
+.minigui-side-scroll { width: 220px; height: 100%; overflow-x: hidden }
+.minigui-body { position: absolute; left: 200px; right: 0; top: 0; bottom: 0; z-index: 998; width: auto; overflow: hidden; overflow-y: auto; box-sizing: border-box }
+.minigui-layout-body { overflow: hidden }
+.minigui-layout-container .minigui-header { background-color: #23262E }
+.minigui-layout-container .minigui-side { top: 60px; width: 200px; overflow-x: hidden }
+.minigui-layout-container .minigui-body { top: 60px; bottom: 44px }
+.minigui-layout-container .minigui-main { width: auto; margin: 0 15px }
+.minigui-layout-container .minigui-footer { position: fixed; left: 200px; right: 0; bottom: 0; height: 44px; line-height: 44px; padding: 0 15px; background-color: #eee }
+.minigui-layout-container .minigui-logo { position: absolute; left: 0; top: 0; width: 200px; height: 100%; line-height: 60px; text-align: center; color: #009688; font-size: 16px }
+.minigui-layout-container .minigui-header .minigui-nav { background: 0 0 }
+.minigui-layout-left { position: absolute !important; left: 200px; top: 0 }
+.minigui-layout-right { position: absolute !important; right: 0; top: 0 }
+.minigui-container { position: relative; margin: 0 auto; padding: 0 15px; box-sizing: border-box }
+.minigui-fluid { position: relative; margin: 0 auto; padding: 0 15px }
+.minigui-row:after, .minigui-row:before { content: ''; display: block; clear: both }
+.minigui-col-lg1, .minigui-col-lg10, .minigui-col-lg11, .minigui-col-lg12, .minigui-col-lg2, .minigui-col-lg3, .minigui-col-lg4, .minigui-col-lg5, .minigui-col-lg6, .minigui-col-lg7, .minigui-col-lg8, .minigui-col-lg9, .minigui-col-md1, .minigui-col-md10, .minigui-col-md11, .minigui-col-md12, .minigui-col-md2, .minigui-col-md3, .minigui-col-md4, .minigui-col-md5, .minigui-col-md6, .minigui-col-md7, .minigui-col-md8, .minigui-col-md9, .minigui-col-sm1, .minigui-col-sm10, .minigui-col-sm11, .minigui-col-sm12, .minigui-col-sm2, .minigui-col-sm3, .minigui-col-sm4, .minigui-col-sm5, .minigui-col-sm6, .minigui-col-sm7, .minigui-col-sm8, .minigui-col-sm9, .minigui-col-xs1, .minigui-col-xs10, .minigui-col-xs11, .minigui-col-xs12, .minigui-col-xs2, .minigui-col-xs3, .minigui-col-xs4, .minigui-col-xs5, .minigui-col-xs6, .minigui-col-xs7, .minigui-col-xs8, .minigui-col-xs9 { position: relative; display: block; box-sizing: border-box }
+.minigui-col-xs1, .minigui-col-xs10, .minigui-col-xs11, .minigui-col-xs12, .minigui-col-xs2, .minigui-col-xs3, .minigui-col-xs4, .minigui-col-xs5, .minigui-col-xs6, .minigui-col-xs7, .minigui-col-xs8, .minigui-col-xs9 { float: left }
+.minigui-col-xs1 { width: 8.33333333% }
+.minigui-col-xs2 { width: 16.66666667% }
+.minigui-col-xs3 { width: 25% }
+.minigui-col-xs4 { width: 33.33333333% }
+.minigui-col-xs5 { width: 41.66666667% }
+.minigui-col-xs6 { width: 50% }
+.minigui-col-xs7 { width: 58.33333333% }
+.minigui-col-xs8 { width: 66.66666667% }
+.minigui-col-xs9 { width: 75% }
+.minigui-col-xs10 { width: 83.33333333% }
+.minigui-col-xs11 { width: 91.66666667% }
+.minigui-col-xs12 { width: 100% }
+.minigui-col-xs-offset1 { margin-left: 8.33333333% }
+.minigui-col-xs-offset2 { margin-left: 16.66666667% }
+.minigui-col-xs-offset3 { margin-left: 25% }
+.minigui-col-xs-offset4 { margin-left: 33.33333333% }
+.minigui-col-xs-offset5 { margin-left: 41.66666667% }
+.minigui-col-xs-offset6 { margin-left: 50% }
+.minigui-col-xs-offset7 { margin-left: 58.33333333% }
+.minigui-col-xs-offset8 { margin-left: 66.66666667% }
+.minigui-col-xs-offset9 { margin-left: 75% }
+.minigui-col-xs-offset10 { margin-left: 83.33333333% }
+.minigui-col-xs-offset11 { margin-left: 91.66666667% }
+.minigui-col-xs-offset12 { margin-left: 100% }
+@media screen and (max-width: 768px) {
+    .minigui-hide-xs { display: none !important }
+    .minigui-show-xs-block { display: block !important }
+    .minigui-show-xs-inline { display: inline !important }
+    .minigui-show-xs-inline-block { display: inline-block !important }
+}
+@media screen and (min-width: 768px) {
+    .minigui-container { width: 750px }
+    .minigui-hide-sm { display: none !important }
+    .minigui-show-sm-block { display: block !important }
+    .minigui-show-sm-inline { display: inline !important }
+    .minigui-show-sm-inline-block { display: inline-block !important }
+    .minigui-col-sm1, .minigui-col-sm10, .minigui-col-sm11, .minigui-col-sm12, .minigui-col-sm2, .minigui-col-sm3, .minigui-col-sm4, .minigui-col-sm5, .minigui-col-sm6, .minigui-col-sm7, .minigui-col-sm8, .minigui-col-sm9 { float: left }
+    .minigui-col-sm1 { width: 8.33333333% }
+    .minigui-col-sm2 { width: 16.66666667% }
+    .minigui-col-sm3 { width: 25% }
+    .minigui-col-sm4 { width: 33.33333333% }
+    .minigui-col-sm5 { width: 41.66666667% }
+    .minigui-col-sm6 { width: 50% }
+    .minigui-col-sm7 { width: 58.33333333% }
+    .minigui-col-sm8 { width: 66.66666667% }
+    .minigui-col-sm9 { width: 75% }
+    .minigui-col-sm10 { width: 83.33333333% }
+    .minigui-col-sm11 { width: 91.66666667% }
+    .minigui-col-sm12 { width: 100% }
+    .minigui-col-sm-offset1 { margin-left: 8.33333333% }
+    .minigui-col-sm-offset2 { margin-left: 16.66666667% }
+    .minigui-col-sm-offset3 { margin-left: 25% }
+    .minigui-col-sm-offset4 { margin-left: 33.33333333% }
+    .minigui-col-sm-offset5 { margin-left: 41.66666667% }
+    .minigui-col-sm-offset6 { margin-left: 50% }
+    .minigui-col-sm-offset7 { margin-left: 58.33333333% }
+    .minigui-col-sm-offset8 { margin-left: 66.66666667% }
+    .minigui-col-sm-offset9 { margin-left: 75% }
+    .minigui-col-sm-offset10 { margin-left: 83.33333333% }
+    .minigui-col-sm-offset11 { margin-left: 91.66666667% }
+    .minigui-col-sm-offset12 { margin-left: 100% }
+}
+@media screen and (min-width: 992px) {
+    .minigui-container { width: 970px }
+    .minigui-hide-md { display: none !important }
+    .minigui-show-md-block { display: block !important }
+    .minigui-show-md-inline { display: inline !important }
+    .minigui-show-md-inline-block { display: inline-block !important }
+    .minigui-col-md1, .minigui-col-md10, .minigui-col-md11, .minigui-col-md12, .minigui-col-md2, .minigui-col-md3, .minigui-col-md4, .minigui-col-md5, .minigui-col-md6, .minigui-col-md7, .minigui-col-md8, .minigui-col-md9 { float: left }
+    .minigui-col-md1 { width: 8.33333333% }
+    .minigui-col-md2 { width: 16.66666667% }
+    .minigui-col-md3 { width: 25% }
+    .minigui-col-md4 { width: 33.33333333% }
+    .minigui-col-md5 { width: 41.66666667% }
+    .minigui-col-md6 { width: 50% }
+    .minigui-col-md7 { width: 58.33333333% }
+    .minigui-col-md8 { width: 66.66666667% }
+    .minigui-col-md9 { width: 75% }
+    .minigui-col-md10 { width: 83.33333333% }
+    .minigui-col-md11 { width: 91.66666667% }
+    .minigui-col-md12 { width: 100% }
+    .minigui-col-md-offset1 { margin-left: 8.33333333% }
+    .minigui-col-md-offset2 { margin-left: 16.66666667% }
+    .minigui-col-md-offset3 { margin-left: 25% }
+    .minigui-col-md-offset4 { margin-left: 33.33333333% }
+    .minigui-col-md-offset5 { margin-left: 41.66666667% }
+    .minigui-col-md-offset6 { margin-left: 50% }
+    .minigui-col-md-offset7 { margin-left: 58.33333333% }
+    .minigui-col-md-offset8 { margin-left: 66.66666667% }
+    .minigui-col-md-offset9 { margin-left: 75% }
+    .minigui-col-md-offset10 { margin-left: 83.33333333% }
+    .minigui-col-md-offset11 { margin-left: 91.66666667% }
+    .minigui-col-md-offset12 { margin-left: 100% }
+}
+@media screen and (min-width: 1200px) {
+    .minigui-container { width: 1170px }
+    .minigui-hide-lg { display: none !important }
+    .minigui-show-lg-block { display: block !important }
+    .minigui-show-lg-inline { display: inline !important }
+    .minigui-show-lg-inline-block { display: inline-block !important }
+    .minigui-col-lg1, .minigui-col-lg10, .minigui-col-lg11, .minigui-col-lg12, .minigui-col-lg2, .minigui-col-lg3, .minigui-col-lg4, .minigui-col-lg5, .minigui-col-lg6, .minigui-col-lg7, .minigui-col-lg8, .minigui-col-lg9 { float: left }
+    .minigui-col-lg1 { width: 8.33333333% }
+    .minigui-col-lg2 { width: 16.66666667% }
+    .minigui-col-lg3 { width: 25% }
+    .minigui-col-lg4 { width: 33.33333333% }
+    .minigui-col-lg5 { width: 41.66666667% }
+    .minigui-col-lg6 { width: 50% }
+    .minigui-col-lg7 { width: 58.33333333% }
+    .minigui-col-lg8 { width: 66.66666667% }
+    .minigui-col-lg9 { width: 75% }
+    .minigui-col-lg10 { width: 83.33333333% }
+    .minigui-col-lg11 { width: 91.66666667% }
+    .minigui-col-lg12 { width: 100% }
+    .minigui-col-lg-offset1 { margin-left: 8.33333333% }
+    .minigui-col-lg-offset2 { margin-left: 16.66666667% }
+    .minigui-col-lg-offset3 { margin-left: 25% }
+    .minigui-col-lg-offset4 { margin-left: 33.33333333% }
+    .minigui-col-lg-offset5 { margin-left: 41.66666667% }
+    .minigui-col-lg-offset6 { margin-left: 50% }
+    .minigui-col-lg-offset7 { margin-left: 58.33333333% }
+    .minigui-col-lg-offset8 { margin-left: 66.66666667% }
+    .minigui-col-lg-offset9 { margin-left: 75% }
+    .minigui-col-lg-offset10 { margin-left: 83.33333333% }
+    .minigui-col-lg-offset11 { margin-left: 91.66666667% }
+    .minigui-col-lg-offset12 { margin-left: 100% }
+}
+.minigui-col-space1 { margin: -.5px }
+.minigui-col-space1 > * { padding: .5px }
+.minigui-col-space3 { margin: -1.5px }
+.minigui-col-space3 > * { padding: 1.5px }
+.minigui-col-space5 { margin: -2.5px }
+.minigui-col-space5 > * { padding: 2.5px }
+.minigui-col-space8 { margin: -3.5px }
+.minigui-col-space8 > * { padding: 3.5px }
+.minigui-col-space10 { margin: -5px }
+.minigui-col-space10 > * { padding: 5px }
+.minigui-col-space12 { margin: -6px }
+.minigui-col-space12 > * { padding: 6px }
+.minigui-col-space15 { margin: -7.5px }
+.minigui-col-space15 > * { padding: 7.5px }
+.minigui-col-space18 { margin: -9px }
+.minigui-col-space18 > * { padding: 9px }
+.minigui-col-space20 { margin: -10px }
+.minigui-col-space20 > * { padding: 10px }
+.minigui-col-space22 { margin: -11px }
+.minigui-col-space22 > * { padding: 11px }
+.minigui-col-space25 { margin: -12.5px }
+.minigui-col-space25 > * { padding: 12.5px }
+.minigui-col-space30 { margin: -15px }
+.minigui-col-space30 > * { padding: 15px }
+.minigui-btn, .minigui-input, .minigui-select, .minigui-textarea, .minigui-upload-button { outline: 0; -webkit-appearance: none; transition: all .3s; -webkit-transition: all .3s; box-sizing: border-box }
+.minigui-elem-quote { margin-bottom: 10px; padding: 15px; line-height: 22px; border-left: 5px solid #009688; border-radius: 0 2px 2px 0; background-color: #f2f2f2 }
+.minigui-quote-nm { border-style: solid; border-width: 1px 1px 1px 5px; background: 0 0 }
+.minigui-elem-field { margin-bottom: 10px; padding: 0; border-width: 1px; border-style: solid }
+.minigui-elem-field legend { margin-left: 20px; padding: 0 10px; font-size: 20px; font-weight: 300 }
+.minigui-field-title { margin: 10px 0 20px; border-width: 1px 0 0 }
+.minigui-field-box { padding: 10px 15px }
+.minigui-field-title .minigui-field-box { padding: 10px 0 }
+.minigui-progress { position: relative; height: 6px; border-radius: 20px; background-color: #e2e2e2 }
+.minigui-progress-bar { position: absolute; left: 0; top: 0; width: 0; max-width: 100%; height: 6px; border-radius: 20px; text-align: right; background-color: #5FB878; transition: all .3s; -webkit-transition: all .3s }
+.minigui-progress-big, .minigui-progress-big .minigui-progress-bar { height: 18px; line-height: 18px }
+.minigui-progress-text { position: relative; top: -18px; line-height: 18px; font-size: 12px; color: #666 }
+.minigui-progress-big .minigui-progress-text { position: static; padding: 0 10px; color: #fff }
+.minigui-card-header, .minigui-colla-title { position: relative; height: 42px; color: #333; font-size: 14px }
+.minigui-card { margin-bottom: 15px; border-radius: 2px; background-color: #fff; box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .05) }
+.minigui-card:last-child { margin-bottom: 0 }
+.minigui-card-header { line-height: 42px; padding: 0 15px; border-bottom: 1px solid #f6f6f6; border-radius: 2px 2px 0 0 }
+.minigui-card-body { position: relative; padding: 10px 15px; line-height: 24px }
+.minigui-card-body .minigui-table { margin: 5px 0 }
+.minigui-card .minigui-tab { margin: 0 }
+.minigui-collapse { border-width: 1px; border-style: solid; border-radius: 2px }
+.minigui-colla-content, .minigui-colla-item { border-top-width: 1px; border-top-style: solid }
+.minigui-colla-item:first-child { border-top: none }
+.minigui-colla-title { line-height: 42px; padding: 0 15px 0 35px; background-color: #f2f2f2; cursor: pointer }
+.minigui-colla-content { display: none; padding: 10px 15px; line-height: 22px; color: #666 }
+.minigui-bg-black, .minigui-bg-blue, .minigui-bg-cyan, .minigui-bg-green, .minigui-bg-orange, .minigui-bg-red { color: #fff !important }
+.minigui-colla-icon { position: absolute; left: 15px; top: 0; font-size: 14px }
+.minigui-bg-red { background-color: #FF5722 !important }
+.minigui-bg-orange { background-color: #FFB800 !important }
+.minigui-bg-green { background-color: #009688 !important }
+.minigui-bg-cyan { background-color: #2F4056 !important }
+.minigui-bg-blue { background-color: #1E9FFF !important }
+.minigui-bg-black { background-color: #393D49 !important }
+.minigui-bg-gray { background-color: #eee !important; color: #666 !important }
+.minigui-badge-rim, .minigui-colla-content, .minigui-colla-item, .minigui-collapse, .minigui-elem-field, .minigui-form-pane .minigui-form-item[pane], .minigui-form-pane .minigui-form-label, .minigui-input, .minigui-layedit, .minigui-layedit-tool, .minigui-quote-nm, .minigui-select, .minigui-tab-bar, .minigui-tab-card, .minigui-tab-title, .minigui-tab-title .minigui-this:after, .minigui-textarea { border-color: #e6e6e6 }
+.minigui-timeline-item:before, hr { background-color: #e6e6e6 }
+.minigui-text { line-height: 22px; font-size: 14px; color: #666 }
+.minigui-text h1, .minigui-text h2, .minigui-text h3 { font-weight: 500; color: #333 }
+.minigui-text h1 { font-size: 30px }
+.minigui-text h2 { font-size: 24px }
+.minigui-text h3 { font-size: 18px }
+.minigui-text a:not(.minigui-btn) { color: #01AAED }
+.minigui-text a:not(.minigui-btn):hover { text-decoration: underline }
+.minigui-text ul { padding: 5px 0 5px 15px }
+.minigui-text ul li { margin-top: 5px; list-style-type: disc }
+.minigui-text em, .minigui-word-aux { color: #999 !important; padding: 0 5px !important }
+.minigui-btn { display: inline-block; height: 38px; line-height: 38px; padding: 0 18px; background-color: #009688; color: #fff; white-space: nowrap; text-align: center; font-size: 14px; border: none; border-radius: 2px; cursor: pointer; -moz-user-select: none; -webkit-user-select: none; -ms-user-select: none }
+.minigui-btn:hover { opacity: .8; filter: alpha(opacity=80); color: #fff }
+.minigui-btn:active { opacity: 1; filter: alpha(opacity=100) }
+.minigui-btn + .minigui-btn { margin-left: 10px }
+.minigui-btn-radius { border-radius: 100px }
+.minigui-btn .minigui-icon { margin-right: 3px; font-size: 18px; vertical-align: bottom; vertical-align: middle \9 }
+.minigui-btn-primary { border: 1px solid #C9C9C9; background-color: #fff; color: #555 }
+.minigui-btn-primary:hover { border-color: #009688; color: #333 }
+.minigui-btn-normal { background-color: #1E9FFF }
+.minigui-btn-warm { background-color: #FFB800 }
+.minigui-btn-danger { background-color: #FF5722 }
+.minigui-btn-disabled, .minigui-btn-disabled:active, .minigui-btn-disabled:hover { border: 1px solid #e6e6e6; background-color: #FBFBFB; color: #C9C9C9; cursor: not-allowed; opacity: 1 }
+.minigui-btn-lg { height: 44px; line-height: 44px; padding: 0 25px; font-size: 16px }
+.minigui-btn-sm { height: 30px; line-height: 30px; padding: 0 10px; font-size: 12px }
+.minigui-btn-sm i { font-size: 16px !important }
+.minigui-btn-xs { height: 22px; line-height: 22px; padding: 0 5px; font-size: 12px }
+.minigui-btn-xs i { font-size: 14px !important }
+.minigui-btn-group { display: inline-block; vertical-align: middle; font-size: 0 }
+.minigui-btn-group .minigui-btn { margin-left: 0 !important; margin-right: 0 !important; border-left: 1px solid rgba(255, 255, 255, .5); border-radius: 0 }
+.minigui-btn-group .minigui-btn-primary { border-left: none }
+.minigui-btn-group .minigui-btn-primary:hover { border-color: #C9C9C9; color: #009688 }
+.minigui-btn-group .minigui-btn:first-child { border-left: none; border-radius: 2px 0 0 2px }
+.minigui-btn-group .minigui-btn-primary:first-child { border-left: 1px solid #c9c9c9 }
+.minigui-btn-group .minigui-btn:last-child { border-radius: 0 2px 2px 0 }
+.minigui-btn-group .minigui-btn + .minigui-btn { margin-left: 0 }
+.minigui-btn-group + .minigui-btn-group { margin-left: 10px }
+.minigui-input, .minigui-select, .minigui-textarea { height: 38px; line-height: 1.3; line-height: 38px \9; border-width: 1px; border-style: solid; background-color: #fff; border-radius: 2px }
+.minigui-input::-webkit-input-placeholder, .minigui-select::-webkit-input-placeholder, .minigui-textarea::-webkit-input-placeholder { line-height: 1.3 }
+.minigui-form-label, .minigui-form-mid, .minigui-textarea { line-height: 20px; position: relative }
+.minigui-input, .minigui-textarea { display: block; width: 100%; padding-left: 10px }
+.minigui-input:hover, .minigui-textarea:hover { border-color: #D2D2D2 !important }
+.minigui-input:focus, .minigui-textarea:focus { border-color: #C9C9C9 !important }
+.minigui-textarea { min-height: 100px; height: auto; padding: 6px 10px; resize: vertical }
+.minigui-select { padding: 0 10px }
+.minigui-form input[type=checkbox], .minigui-form input[type=radio], .minigui-form select { display: none }
+.minigui-form [lay-ignore] { display: initial }
+.minigui-form-item { margin-bottom: 15px; clear: both; *zoom: 1 }
+.minigui-form-item:after { content: '\20'; clear: both; *zoom: 1; display: block; height: 0 }
+.minigui-form-label { float: left; display: block; padding: 9px 15px; width: 80px; font-weight: 400; text-align: right }
+.minigui-form-item .minigui-inline { margin-bottom: 5px; margin-right: 10px }
+.minigui-input-block, .minigui-input-inline { position: relative }
+.minigui-input-block { margin-left: 110px; min-height: 36px }
+.minigui-input-inline { display: inline-block; vertical-align: middle }
+.minigui-form-item .minigui-input-inline { float: left; width: 190px; margin-right: 10px }
+.minigui-form-text .minigui-input-inline { width: auto }
+.minigui-form-mid { float: left; display: block; padding: 9px 0 !important; margin-right: 10px }
+.minigui-form-danger + .minigui-form-select .minigui-input, .minigui-form-danger:focus { border-color: #FF5722 !important }
+.minigui-form-select { position: relative }
+.minigui-form-select .minigui-input { padding-right: 30px; cursor: pointer }
+.minigui-form-select .minigui-edge { position: absolute; right: 10px; top: 50%; margin-top: -3px; cursor: pointer; border-width: 6px; border-top-color: #c2c2c2; border-top-style: solid; transition: all .3s; -webkit-transition: all .3s }
+.minigui-form-select dl { display: none; position: absolute; left: 0; top: 42px; padding: 5px 0; z-index: 999; min-width: 100%; border: 1px solid #d2d2d2; max-height: 300px; overflow-y: auto; background-color: #fff; border-radius: 2px; box-shadow: 0 2px 4px rgba(0, 0, 0, .12); box-sizing: border-box }
+.minigui-form-select dl dd, .minigui-form-select dl dt { padding: 0 10px; line-height: 36px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis }
+.minigui-form-select dl dt { font-size: 12px; color: #999 }
+.minigui-form-select dl dd { cursor: pointer }
+.minigui-form-select dl dd:hover { background-color: #f2f2f2 }
+.minigui-form-select .minigui-select-group dd { padding-left: 20px }
+.minigui-form-select dl dd.minigui-select-tips { padding-left: 10px !important; color: #999 }
+.minigui-form-select dl dd.minigui-this { background-color: #5FB878; color: #fff }
+.minigui-form-checkbox, .minigui-form-select dl dd.minigui-disabled { background-color: #fff }
+.minigui-form-selected dl { display: block }
+.minigui-form-checkbox, .minigui-form-checkbox *, .minigui-form-switch { display: inline-block; vertical-align: middle }
+.minigui-form-selected .minigui-edge { margin-top: -9px; -webkit-transform: rotate(180deg); transform: rotate(180deg); margin-top: -3px \9 }
+:root .minigui-form-selected .minigui-edge { margin-top: -9px \0/ IE9 }
+.minigui-form-selectup dl { top: auto; bottom: 42px }
+.minigui-select-none { margin: 5px 0; text-align: center; color: #999 }
+.minigui-select-disabled .minigui-disabled { border-color: #eee !important }
+.minigui-select-disabled .minigui-edge { border-top-color: #d2d2d2 }
+.minigui-form-checkbox { position: relative; height: 30px; line-height: 28px; margin-right: 10px; padding-right: 30px; border: 1px solid #d2d2d2; cursor: pointer; font-size: 0; border-radius: 2px; -webkit-transition: .1s linear; transition: .1s linear; box-sizing: border-box }
+.minigui-form-checkbox:hover { border: 1px solid #c2c2c2 }
+.minigui-form-checkbox span { padding: 0 10px; height: 100%; font-size: 14px; background-color: #d2d2d2; color: #fff; overflow: hidden; white-space: nowrap; text-overflow: ellipsis }
+.minigui-form-checkbox:hover span { background-color: #c2c2c2 }
+.minigui-form-checkbox i { position: absolute; right: 0; width: 30px; color: #fff; font-size: 20px; text-align: center }
+.minigui-form-checkbox:hover i { color: #c2c2c2 }
+.minigui-form-checked, .minigui-form-checked:hover { border-color: #5FB878 }
+.minigui-form-checked span, .minigui-form-checked:hover span { background-color: #5FB878 }
+.minigui-form-checked i, .minigui-form-checked:hover i { color: #5FB878 }
+.minigui-form-item .minigui-form-checkbox { margin-top: 4px }
+.minigui-form-checkbox[lay-skin=primary] { height: auto !important; line-height: normal !important; border: none !important; margin-right: 0; padding-right: 0; background: 0 0 }
+.minigui-form-checkbox[lay-skin=primary] span { float: right; padding-right: 15px; line-height: 18px; background: 0 0; color: #666 }
+.minigui-form-checkbox[lay-skin=primary] i { position: relative; top: 0; width: 16px; height: 16px; line-height: 16px; border: 1px solid #d2d2d2; font-size: 12px; border-radius: 2px; background-color: #fff; -webkit-transition: .1s linear; transition: .1s linear }
+.minigui-form-checkbox[lay-skin=primary]:hover i { border-color: #5FB878; color: #fff }
+.minigui-form-checked[lay-skin=primary] i { border-color: #5FB878; background-color: #5FB878; color: #fff }
+.minigui-checkbox-disbaled[lay-skin=primary] span { background: 0 0 !important; color: #c2c2c2 }
+.minigui-checkbox-disbaled[lay-skin=primary]:hover i { border-color: #d2d2d2 }
+.minigui-form-item .minigui-form-checkbox[lay-skin=primary] { margin-top: 10px }
+.minigui-form-switch { position: relative; height: 22px; line-height: 22px; width: 42px; padding: 0 5px; margin-top: 8px; border: 1px solid #d2d2d2; border-radius: 20px; cursor: pointer; background-color: #fff; -webkit-transition: .1s linear; transition: .1s linear }
+.minigui-form-switch i { position: absolute; left: 5px; top: 3px; width: 16px; height: 16px; border-radius: 20px; background-color: #d2d2d2; -webkit-transition: .1s linear; transition: .1s linear }
+.minigui-form-switch em { position: absolute; right: 5px; top: 0; width: 25px; padding: 0 !important; text-align: center !important; color: #999 !important; font-style: normal !important; font-size: 12px }
+.minigui-form-onswitch { border-color: #5FB878; background-color: #5FB878 }
+.minigui-form-onswitch i { left: 32px; background-color: #fff }
+.minigui-form-onswitch em { left: 5px; right: auto; color: #fff !important }
+.minigui-checkbox-disbaled { border-color: #e2e2e2 !important }
+.minigui-checkbox-disbaled span { background-color: #e2e2e2 !important }
+.minigui-checkbox-disbaled:hover i { color: #fff !important }
+[lay-radio] { display: none }
+.minigui-form-radio, .minigui-form-radio * { display: inline-block; vertical-align: middle }
+.minigui-form-radio { line-height: 28px; margin: 6px 10px 0 0; padding-right: 10px; cursor: pointer; font-size: 0 }
+.minigui-form-radio * { font-size: 14px }
+.minigui-form-radio > i { margin-right: 8px; font-size: 22px; color: #c2c2c2 }
+.minigui-form-radio > i:hover, .minigui-form-radioed > i { color: #5FB878 }
+.minigui-radio-disbaled > i { color: #e2e2e2 !important }
+.minigui-form-pane .minigui-form-label { width: 110px; padding: 8px 15px; height: 38px; line-height: 20px; border-width: 1px; border-style: solid; border-radius: 2px 0 0 2px; text-align: center; background-color: #FBFBFB; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; box-sizing: border-box }
+.minigui-form-pane .minigui-input-inline { margin-left: -1px }
+.minigui-form-pane .minigui-input-block { margin-left: 110px; left: -1px }
+.minigui-form-pane .minigui-input { border-radius: 0 2px 2px 0 }
+.minigui-form-pane .minigui-form-text .minigui-form-label { float: none; width: 100%; border-radius: 2px; box-sizing: border-box; text-align: left }
+.minigui-form-pane .minigui-form-text .minigui-input-inline { display: block; margin: 0; top: -1px; clear: both }
+.minigui-form-pane .minigui-form-text .minigui-input-block { margin: 0; left: 0; top: -1px }
+.minigui-form-pane .minigui-form-text .minigui-textarea { min-height: 100px; border-radius: 0 0 2px 2px }
+.minigui-form-pane .minigui-form-checkbox { margin: 4px 0 4px 10px }
+.minigui-form-pane .minigui-form-radio, .minigui-form-pane .minigui-form-switch { margin-top: 6px; margin-left: 10px }
+.minigui-form-pane .minigui-form-item[pane] { position: relative; border-width: 1px; border-style: solid }
+.minigui-form-pane .minigui-form-item[pane] .minigui-form-label { position: absolute; left: 0; top: 0; height: 100%; border-width: 0 1px 0 0 }
+.minigui-form-pane .minigui-form-item[pane] .minigui-input-inline { margin-left: 110px }
+@media screen and (max-width: 450px) {
+    .minigui-form-item .minigui-form-label { text-overflow: ellipsis; overflow: hidden; white-space: nowrap }
+    .minigui-form-item .minigui-inline { display: block; margin-right: 0; margin-bottom: 20px; clear: both }
+    .minigui-form-item .minigui-inline:after { content: '\20'; clear: both; display: block; height: 0 }
+    .minigui-form-item .minigui-input-inline { display: block; float: none; left: -3px; width: auto; margin: 0 0 10px 112px }
+    .minigui-form-item .minigui-input-inline + .minigui-form-mid { margin-left: 110px; top: -5px; padding: 0 }
+    .minigui-form-item .minigui-form-checkbox { margin-right: 5px; margin-bottom: 5px }
+}
+.minigui-layedit { border-width: 1px; border-style: solid; border-radius: 2px }
+.minigui-layedit-tool { padding: 3px 5px; border-bottom-width: 1px; border-bottom-style: solid; font-size: 0 }
+.layedit-tool-fixed { position: fixed; top: 0; border-top: 1px solid #e2e2e2 }
+.minigui-layedit-tool .layedit-tool-mid, .minigui-layedit-tool .minigui-icon { display: inline-block; vertical-align: middle; text-align: center; font-size: 14px }
+.minigui-layedit-tool .minigui-icon { position: relative; width: 32px; height: 30px; line-height: 30px; margin: 3px 5px; color: #777; cursor: pointer; border-radius: 2px }
+.minigui-layedit-tool .minigui-icon:hover { color: #393D49 }
+.minigui-layedit-tool .minigui-icon:active { color: #000 }
+.minigui-layedit-tool .layedit-tool-active { background-color: #e2e2e2; color: #000 }
+.minigui-layedit-tool .minigui-disabled, .minigui-layedit-tool .minigui-disabled:hover { color: #d2d2d2; cursor: not-allowed }
+.minigui-layedit-tool .layedit-tool-mid { width: 1px; height: 18px; margin: 0 10px; background-color: #d2d2d2 }
+.layedit-tool-html { width: 50px !important; font-size: 30px !important }
+.layedit-tool-b, .layedit-tool-code, .layedit-tool-help { font-size: 16px !important }
+.layedit-tool-d, .layedit-tool-face, .layedit-tool-image, .layedit-tool-unlink { font-size: 18px !important }
+.layedit-tool-image input { position: absolute; font-size: 0; left: 0; top: 0; width: 100%; height: 100%; opacity: .01; filter: Alpha(opacity=1); cursor: pointer }
+.minigui-layedit-iframe iframe { display: block; width: 100% }
+#LAY_layedit_code { overflow: hidden }
+.minigui-laypage { display: inline-block; *display: inline; *zoom: 1; vertical-align: middle; margin: 10px 0; font-size: 0 }
+.minigui-laypage > a:first-child, .minigui-laypage > a:first-child em { border-radius: 2px 0 0 2px }
+.minigui-laypage > a:last-child, .minigui-laypage > a:last-child em { border-radius: 0 2px 2px 0 }
+.minigui-laypage > :first-child { margin-left: 0 !important }
+.minigui-laypage > :last-child { margin-right: 0 !important }
+.minigui-laypage a, .minigui-laypage button, .minigui-laypage input, .minigui-laypage select, .minigui-laypage span { border: 1px solid #e2e2e2 }
+.minigui-laypage a, .minigui-laypage span { display: inline-block; *display: inline; *zoom: 1; vertical-align: middle; padding: 0 15px; height: 28px; line-height: 28px; margin: 0 -1px 5px 0; background-color: #fff; color: #333; font-size: 12px }
+.minigui-laypage a:hover { color: #009688 }
+.minigui-laypage em { font-style: normal }
+.minigui-laypage .minigui-laypage-spr { color: #999; font-weight: 700 }
+.minigui-laypage a { text-decoration: none }
+.minigui-laypage .minigui-laypage-curr { position: relative }
+.minigui-laypage .minigui-laypage-curr em { position: relative; color: #fff }
+.minigui-laypage .minigui-laypage-curr .minigui-laypage-em { position: absolute; left: -1px; top: -1px; padding: 1px; width: 100%; height: 100%; background-color: #009688 }
+.minigui-laypage-em { border-radius: 2px }
+.minigui-laypage-next em, .minigui-laypage-prev em { font-family: Sim sun; font-size: 16px }
+.minigui-laypage .minigui-laypage-count, .minigui-laypage .minigui-laypage-limits, .minigui-laypage .minigui-laypage-skip { margin-left: 10px; margin-right: 10px; padding: 0; border: none }
+.minigui-laypage .minigui-laypage-limits { vertical-align: top }
+.minigui-laypage select { height: 22px; padding: 3px; border-radius: 2px; cursor: pointer }
+.minigui-laypage .minigui-laypage-skip { height: 30px; line-height: 30px; color: #999 }
+.minigui-laypage button, .minigui-laypage input { height: 30px; line-height: 30px; border-radius: 2px; vertical-align: top; background-color: #fff; box-sizing: border-box }
+.minigui-laypage input { display: inline-block; width: 40px; margin: 0 10px; padding: 0 3px; text-align: center }
+.minigui-laypage input:focus, .minigui-laypage select:focus { border-color: #009688 !important }
+.minigui-laypage button { margin-left: 10px; padding: 0 10px; cursor: pointer }
+.minigui-table, .minigui-table-view { margin: 10px 0 }
+.minigui-flow-more { margin: 10px 0; text-align: center; color: #999; font-size: 14px }
+.minigui-flow-more a { height: 32px; line-height: 32px }
+.minigui-flow-more a * { display: inline-block; vertical-align: top }
+.minigui-flow-more a cite { padding: 0 20px; border-radius: 3px; background-color: #eee; color: #333; font-style: normal }
+.minigui-flow-more a cite:hover { opacity: .8 }
+.minigui-flow-more a i { font-size: 30px; color: #737383 }
+.minigui-table { width: 100%; background-color: #fff; color: #666 }
+.minigui-table tr { transition: all .3s; -webkit-transition: all .3s }
+.minigui-table th { text-align: left; font-weight: 400 }
+.minigui-table tbody tr:hover, .minigui-table thead tr, .minigui-table-click, .minigui-table-header, .minigui-table-hover, .minigui-table-mend, .minigui-table-patch, .minigui-table-tool, .minigui-table[lay-even] tr:nth-child(even) { background-color: #f2f2f2 }
+.minigui-table td, .minigui-table th, .minigui-table-fixed-r, .minigui-table-header, .minigui-table-page, .minigui-table-tips-main, .minigui-table-tool, .minigui-table-view, .minigui-table[lay-skin=row], .minigui-table[lay-skin=line] { border-width: 1px; border-style: solid; border-color: #e6e6e6 }
+.minigui-table td, .minigui-table th { position: relative; padding: 9px 15px; min-height: 20px; line-height: 20px; font-size: 14px }
+.minigui-table[lay-skin=line] td, .minigui-table[lay-skin=line] th { border-width: 0 0 1px }
+.minigui-table[lay-skin=row] td, .minigui-table[lay-skin=row] th { border-width: 0 1px 0 0 }
+.minigui-table[lay-skin=nob] td, .minigui-table[lay-skin=nob] th { border: none }
+.minigui-table img { max-width: 100px }
+.minigui-table[lay-size=lg] td, .minigui-table[lay-size=lg] th { padding: 15px 30px }
+.minigui-table-view .minigui-table[lay-size=lg] .minigui-table-cell { height: 40px; line-height: 40px }
+.minigui-table[lay-size=sm] td, .minigui-table[lay-size=sm] th { font-size: 12px; padding: 5px 10px }
+.minigui-table-view .minigui-table[lay-size=sm] .minigui-table-cell { height: 20px; line-height: 20px }
+.minigui-table[lay-data] { display: none }
+.minigui-table-box, .minigui-table-view { position: relative; overflow: hidden }
+.minigui-table-view .minigui-table { position: relative; width: auto; margin: 0 }
+.minigui-table-body, .minigui-table-header .minigui-table, .minigui-table-page { margin-bottom: -1px }
+.minigui-table-view .minigui-table[lay-skin=line] { border-width: 0 1px 0 0 }
+.minigui-table-view .minigui-table[lay-skin=row] { border-width: 0 0 1px }
+.minigui-table-view .minigui-table td, .minigui-table-view .minigui-table th { padding: 5px 0; border-top: none; border-left: none }
+.minigui-table-view .minigui-table td { cursor: default }
+.minigui-table-view .minigui-form-checkbox[lay-skin=primary] i { width: 18px; height: 18px }
+.minigui-table-header { border-width: 0 0 1px; overflow: hidden }
+.minigui-table-sort { width: 10px; height: 20px; margin-left: 5px; cursor: pointer !important }
+.minigui-table-sort .minigui-edge { position: absolute; left: 5px; border-width: 5px }
+.minigui-table-sort .minigui-table-sort-asc { top: 4px; border-top: none; border-bottom-style: solid; border-bottom-color: #b2b2b2 }
+.minigui-table-sort .minigui-table-sort-asc:hover { border-bottom-color: #666 }
+.minigui-table-sort .minigui-table-sort-desc { bottom: 4px; border-bottom: none; border-top-style: solid; border-top-color: #b2b2b2 }
+.minigui-table-sort .minigui-table-sort-desc:hover { border-top-color: #666 }
+.minigui-table-sort[lay-sort=asc] .minigui-table-sort-asc { border-bottom-color: #000 }
+.minigui-table-sort[lay-sort=desc] .minigui-table-sort-desc { border-top-color: #000 }
+.minigui-table-cell { height: 28px; line-height: 28px; padding: 0 15px; position: relative; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; box-sizing: border-box }
+.minigui-table-cell .minigui-form-checkbox[lay-skin=primary] { top: -1px; vertical-align: middle }
+.minigui-table-cell .minigui-table-link { color: #01AAED }
+.laytable-cell-checkbox, .laytable-cell-numbers, .laytable-cell-space { padding: 0; text-align: center }
+.minigui-table-body { position: relative; overflow: auto; margin-right: -1px }
+.minigui-table-body .minigui-none { line-height: 40px; text-align: center; color: #999 }
+.minigui-table-fixed { position: absolute; left: 0; top: 0 }
+.minigui-table-fixed .minigui-table-body { overflow: hidden }
+.minigui-table-fixed-l { box-shadow: 0 -1px 8px rgba(0, 0, 0, .08) }
+.minigui-table-fixed-r { left: auto; right: -1px; border-width: 0 0 0 1px; box-shadow: -1px 0 8px rgba(0, 0, 0, .08) }
+.minigui-table-fixed-r .minigui-table-header { position: relative; overflow: visible }
+.minigui-table-mend { position: absolute; right: -49px; top: 0; height: 100%; width: 50px }
+.minigui-table-tool { position: relative; width: 100%; height: 50px; line-height: 30px; padding: 10px 15px; border-width: 0 0 1px }
+.minigui-table-page { position: relative; width: 100%; padding: 7px 7px 0; border-width: 1px 0 0; height: 41px; font-size: 12px }
+.minigui-table-page > div { height: 26px }
+.minigui-table-page .minigui-laypage { margin: 0 }
+.minigui-table-page .minigui-laypage a, .minigui-table-page .minigui-laypage span { height: 26px; line-height: 26px; margin-bottom: 10px; border: none; background: 0 0 }
+.minigui-table-page .minigui-laypage a, .minigui-table-page .minigui-laypage span.minigui-laypage-curr { padding: 0 12px }
+.minigui-table-page .minigui-laypage span { margin-left: 0; padding: 0 }
+.minigui-table-page .minigui-laypage .minigui-laypage-prev { margin-left: -7px !important }
+.minigui-table-page .minigui-laypage .minigui-laypage-curr .minigui-laypage-em { left: 0; top: 0; padding: 0 }
+.minigui-table-page .minigui-laypage button, .minigui-table-page .minigui-laypage input { height: 26px; line-height: 26px }
+.minigui-table-page .minigui-laypage input { width: 40px }
+.minigui-table-page .minigui-laypage button { padding: 0 10px }
+.minigui-table-page select { height: 18px }
+.minigui-table-view select[lay-ignore] { display: inline-block }
+.minigui-table-patch .minigui-table-cell { padding: 0; width: 30px }
+.minigui-table-edit { position: absolute; left: 0; top: 0; width: 100%; height: 100%; padding: 0 14px 1px; border-radius: 0; box-shadow: 1px 1px 20px rgba(0, 0, 0, .15) }
+.minigui-table-edit:focus { border-color: #5FB878 !important }
+select.minigui-table-edit { padding: 0 0 0 10px; border-color: #C9C9C9 }
+.minigui-table-view .minigui-form-checkbox, .minigui-table-view .minigui-form-radio, .minigui-table-view .minigui-form-switch { top: 0; margin: 0; box-sizing: content-box }
+.minigui-table-view .minigui-form-checkbox { top: -1px; height: 26px; line-height: 26px }
+body .minigui-table-tips .minigui-layer-content { background: 0 0; padding: 0; box-shadow: 0 1px 6px rgba(0, 0, 0, .1) }
+.minigui-table-tips-main { margin: -44px 0 0 -1px; max-height: 150px; padding: 8px 15px; font-size: 14px; overflow-y: scroll; background-color: #fff; color: #333 }
+.minigui-code, .minigui-upload-list { margin: 10px 0 }
+.minigui-table-tips-c { position: absolute; right: -3px; top: -12px; width: 18px; height: 18px; padding: 3px; text-align: center; font-weight: 700; border-radius: 100%; font-size: 14px; cursor: pointer; background-color: #666 }
+.minigui-table-tips-c:hover { background-color: #999 }
+.minigui-upload-file { display: none !important; opacity: .01; filter: Alpha(opacity=1) }
+.minigui-upload-drag, .minigui-upload-form, .minigui-upload-wrap { display: inline-block }
+.minigui-upload-choose { padding: 0 10px; color: #999 }
+.minigui-upload-drag { position: relative; padding: 30px; border: 1px dashed #e2e2e2; background-color: #fff; text-align: center; cursor: pointer; color: #999 }
+.minigui-upload-drag .minigui-icon { font-size: 50px; color: #009688 }
+.minigui-upload-drag[lay-over] { border-color: #009688 }
+.minigui-upload-iframe { position: absolute; width: 0; height: 0; border: 0; visibility: hidden }
+.minigui-upload-wrap { position: relative; vertical-align: middle }
+.minigui-upload-wrap .minigui-upload-file { display: block !important; position: absolute; left: 0; top: 0; z-index: 10; font-size: 100px; width: 100%; height: 100%; opacity: .01; filter: Alpha(opacity=1); cursor: pointer }
+.minigui-code { position: relative; padding: 15px; line-height: 20px; border: 1px solid #ddd; border-left-width: 6px; background-color: #F2F2F2; color: #333; font-family: Courier New; font-size: 12px }
+.minigui-tree { line-height: 26px }
+.minigui-tree li { text-overflow: ellipsis; overflow: hidden; white-space: nowrap }
+.minigui-tree li .minigui-tree-spread, .minigui-tree li a { display: inline-block; vertical-align: top; height: 26px; *display: inline; *zoom: 1; cursor: pointer }
+.minigui-tree li a { font-size: 0 }
+.minigui-tree li a i { font-size: 16px }
+.minigui-tree li a cite { padding: 0 6px; font-size: 14px; font-style: normal }
+.minigui-tree li i { padding-left: 6px; color: #333; -moz-user-select: none }
+.minigui-tree li .minigui-tree-check { font-size: 13px }
+.minigui-tree li .minigui-tree-check:hover { color: #009E94 }
+.minigui-tree li ul { display: none; margin-left: 20px }
+.minigui-tree li .minigui-tree-enter { line-height: 24px; border: 1px dotted #000 }
+.minigui-tree-drag { display: none; position: absolute; left: -666px; top: -666px; background-color: #f2f2f2; padding: 5px 10px; border: 1px dotted #000; white-space: nowrap }
+.minigui-tree-drag i { padding-right: 5px }
+.minigui-nav { position: relative; padding: 0 20px; background-color: #393D49; color: #fff; border-radius: 2px; font-size: 0; box-sizing: border-box }
+.minigui-nav * { font-size: 14px }
+.minigui-nav .minigui-nav-item { position: relative; display: inline-block; *display: inline; *zoom: 1; vertical-align: middle; line-height: 60px }
+.minigui-nav .minigui-nav-item a { display: block; padding: 0 20px; color: #fff; color: rgba(255, 255, 255, .7); transition: all .3s; -webkit-transition: all .3s }
+.minigui-nav .minigui-this:after, .minigui-nav-bar, .minigui-nav-tree .minigui-nav-itemed:after { position: absolute; left: 0; top: 0; width: 0; height: 5px; background-color: #5FB878; transition: all .2s; -webkit-transition: all .2s }
+.minigui-nav-bar { z-index: 1000 }
+.minigui-nav .minigui-nav-item a:hover, .minigui-nav .minigui-this a { color: #fff }
+.minigui-nav .minigui-this:after { content: ''; top: auto; bottom: 0; width: 100% }
+.minigui-nav-img { width: 30px; height: 30px; margin-right: 10px; border-radius: 50% }
+.minigui-nav .minigui-nav-more { content: ''; width: 0; height: 0; border-style: solid dashed dashed; border-color: #fff transparent transparent; overflow: hidden; cursor: pointer; transition: all .2s; -webkit-transition: all .2s; position: absolute; top: 50%; right: 3px; margin-top: -3px; border-width: 6px; border-top-color: rgba(255, 255, 255, .7) }
+.minigui-nav .minigui-nav-mored, .minigui-nav-itemed .minigui-nav-more { margin-top: -9px; border-style: dashed dashed solid; border-color: transparent transparent #fff }
+.minigui-nav-child { display: none; position: absolute; left: 0; top: 65px; min-width: 100%; line-height: 36px; padding: 5px 0; box-shadow: 0 2px 4px rgba(0, 0, 0, .12); border: 1px solid #d2d2d2; background-color: #fff; z-index: 100; border-radius: 2px; white-space: nowrap }
+.minigui-nav .minigui-nav-child a { color: #333 }
+.minigui-nav .minigui-nav-child a:hover { background-color: #f2f2f2; color: #000 }
+.minigui-nav-child dd { position: relative }
+.minigui-nav .minigui-nav-child dd.minigui-this a, .minigui-nav-child dd.minigui-this { background-color: #5FB878; color: #fff }
+.minigui-nav-child dd.minigui-this:after { display: none }
+.minigui-nav-tree { width: 200px; padding: 0 }
+.minigui-nav-tree .minigui-nav-item { display: block; width: 100%; line-height: 45px }
+.minigui-nav-tree .minigui-nav-item a { height: 45px; line-height: 45px; text-overflow: ellipsis; overflow: hidden; white-space: nowrap }
+.minigui-nav-tree .minigui-nav-item a:hover { background-color: #4E5465 }
+.minigui-nav-tree .minigui-nav-bar { width: 5px; height: 0; background-color: #009688 }
+.minigui-nav-tree .minigui-nav-child dd.minigui-this, .minigui-nav-tree .minigui-nav-child dd.minigui-this a, .minigui-nav-tree .minigui-this, .minigui-nav-tree .minigui-this > a, .minigui-nav-tree .minigui-this > a:hover { background-color: #009688; color: #fff }
+.minigui-nav-tree .minigui-this:after { display: none }
+.minigui-nav-itemed > a, .minigui-nav-tree .minigui-nav-title a, .minigui-nav-tree .minigui-nav-title a:hover { color: #fff !important }
+.minigui-nav-tree .minigui-nav-child { position: relative; z-index: 0; top: 0; border: none; box-shadow: none }
+.minigui-nav-tree .minigui-nav-child a { height: 40px; line-height: 40px; color: #fff; color: rgba(255, 255, 255, .7) }
+.minigui-nav-tree .minigui-nav-child, .minigui-nav-tree .minigui-nav-child a:hover { background: 0 0; color: #fff }
+.minigui-nav-tree .minigui-nav-more { top: 20px; right: 10px; margin: 0 }
+.minigui-nav-itemed .minigui-nav-more { top: 14px }
+.minigui-nav-itemed .minigui-nav-child { display: block; padding: 0; background-color: rgba(0, 0, 0, .3) !important }
+.minigui-nav-side { position: fixed; top: 0; bottom: 0; left: 0; overflow-x: hidden; z-index: 999 }
+.minigui-bg-blue .minigui-nav-bar, .minigui-bg-blue .minigui-nav-itemed:after, .minigui-bg-blue .minigui-this:after { background-color: #93D1FF }
+.minigui-bg-blue .minigui-nav-child dd.minigui-this { background-color: #1E9FFF }
+.minigui-bg-blue .minigui-nav-itemed > a, .minigui-nav-tree.minigui-bg-blue .minigui-nav-title a, .minigui-nav-tree.minigui-bg-blue .minigui-nav-title a:hover { background-color: #007DDB !important }
+.minigui-breadcrumb { visibility: hidden; font-size: 0 }
+.minigui-breadcrumb > * { font-size: 14px }
+.minigui-breadcrumb a { color: #999 !important }
+.minigui-breadcrumb a:hover { color: #5FB878 !important }
+.minigui-breadcrumb a cite { color: #666; font-style: normal }
+.minigui-breadcrumb span[lay-separator] { margin: 0 10px; color: #999 }
+.minigui-tab { margin: 10px 0; text-align: left !important }
+.minigui-tab[overflow] > .minigui-tab-title { overflow: hidden }
+.minigui-tab-title { position: relative; left: 0; height: 40px; white-space: nowrap; font-size: 0; border-bottom-width: 1px; border-bottom-style: solid; transition: all .2s; -webkit-transition: all .2s }
+.minigui-tab-title li { display: inline-block; *display: inline; *zoom: 1; vertical-align: middle; font-size: 14px; transition: all .2s; -webkit-transition: all .2s; position: relative; line-height: 40px; min-width: 65px; padding: 0 15px; text-align: center; cursor: pointer }
+.minigui-tab-title li a { display: block }
+.minigui-tab-title .minigui-this { color: #000 }
+.minigui-tab-title .minigui-this:after { position: absolute; left: 0; top: 0; content: ''; width: 100%; height: 41px; border-width: 1px; border-style: solid; border-bottom-color: #fff; border-radius: 2px 2px 0 0; box-sizing: border-box; pointer-events: none }
+.minigui-tab-bar { position: absolute; right: 0; top: 0; z-index: 10; width: 30px; height: 39px; line-height: 39px; border-width: 1px; border-style: solid; border-radius: 2px; text-align: center; background-color: #fff; cursor: pointer }
+.minigui-tab-bar .minigui-icon { position: relative; display: inline-block; top: 3px; transition: all .3s; -webkit-transition: all .3s }
+.minigui-tab-item { display: none }
+.minigui-tab-more { padding-right: 30px; height: auto !important; white-space: normal !important }
+.minigui-tab-more li.minigui-this:after { border-bottom-color: #e2e2e2; border-radius: 2px }
+.minigui-tab-more .minigui-tab-bar .minigui-icon { top: -2px; top: 3px \9; -webkit-transform: rotate(180deg); transform: rotate(180deg) }
+:root .minigui-tab-more .minigui-tab-bar .minigui-icon { top: -2px \0/ IE9 }
+.minigui-tab-content { padding: 10px }
+.minigui-tab-title li .minigui-tab-close { position: relative; display: inline-block; width: 18px; height: 18px; line-height: 20px; margin-left: 8px; top: 1px; text-align: center; font-size: 14px; color: #c2c2c2; transition: all .2s; -webkit-transition: all .2s }
+.minigui-tab-title li .minigui-tab-close:hover { border-radius: 2px; background-color: #FF5722; color: #fff }
+.minigui-tab-brief > .minigui-tab-title .minigui-this { color: #009688 }
+.minigui-tab-brief > .minigui-tab-more li.minigui-this:after, .minigui-tab-brief > .minigui-tab-title .minigui-this:after { border: none; border-radius: 0; border-bottom: 2px solid #5FB878 }
+.minigui-tab-brief[overflow] > .minigui-tab-title .minigui-this:after { top: -1px }
+.minigui-tab-card { border-width: 1px; border-style: solid; border-radius: 2px; box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .1) }
+.minigui-tab-card > .minigui-tab-title { background-color: #f2f2f2 }
+.minigui-tab-card > .minigui-tab-title li { margin-right: -1px; margin-left: -1px }
+.minigui-tab-card > .minigui-tab-title .minigui-this { background-color: #fff }
+.minigui-tab-card > .minigui-tab-title .minigui-this:after { border-top: none; border-width: 1px; border-bottom-color: #fff }
+.minigui-tab-card > .minigui-tab-title .minigui-tab-bar { height: 40px; line-height: 40px; border-radius: 0; border-top: none; border-right: none }
+.minigui-tab-card > .minigui-tab-more .minigui-this { background: 0 0; color: #5FB878 }
+.minigui-tab-card > .minigui-tab-more .minigui-this:after { border: none }
+.minigui-timeline { padding-left: 5px }
+.minigui-timeline-item { position: relative; padding-bottom: 20px }
+.minigui-timeline-axis { position: absolute; left: -5px; top: 0; z-index: 10; width: 20px; height: 20px; line-height: 20px; background-color: #fff; color: #5FB878; border-radius: 50%; text-align: center; cursor: pointer }
+.minigui-timeline-axis:hover { color: #FF5722 }
+.minigui-timeline-item:before { content: ''; position: absolute; left: 5px; top: 0; z-index: 0; width: 1px; height: 100% }
+.minigui-timeline-item:last-child:before { display: none }
+.minigui-timeline-item:first-child:before { display: block }
+.minigui-timeline-content { padding-left: 25px }
+.minigui-timeline-title { position: relative; margin-bottom: 10px }
+.minigui-badge, .minigui-badge-dot, .minigui-badge-rim { position: relative; display: inline-block; padding: 0 6px; font-size: 12px; text-align: center; background-color: #FF5722; color: #fff; border-radius: 2px }
+.minigui-badge { height: 18px; line-height: 18px }
+.minigui-badge-dot { width: 8px; height: 8px; padding: 0; border-radius: 50% }
+.minigui-badge-rim { height: 18px; line-height: 18px; border-width: 1px; border-style: solid; background-color: #fff; color: #666 }
+.minigui-btn .minigui-badge, .minigui-btn .minigui-badge-dot { margin-left: 5px }
+.minigui-nav .minigui-badge, .minigui-nav .minigui-badge-dot { position: absolute; top: 50%; margin: -8px 6px 0 }
+.minigui-tab-title .minigui-badge, .minigui-tab-title .minigui-badge-dot { left: 5px; top: -2px }
+.minigui-carousel { position: relative; left: 0; top: 0; background-color: #f8f8f8 }
+.minigui-carousel > [carousel-item] { position: relative; width: 100%; height: 100%; overflow: hidden }
+.minigui-carousel > [carousel-item]:before { position: absolute; content: '\e63d'; left: 50%; top: 50%; width: 100px; line-height: 20px; margin: -10px 0 0 -50px; text-align: center; color: #c2c2c2; font-family: minigui-icon !important; font-size: 30px; font-style: normal; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale }
+.minigui-carousel > [carousel-item] > * { display: none; position: absolute; left: 0; top: 0; width: 100%; height: 100%; background-color: #f8f8f8; transition-duration: .3s; -webkit-transition-duration: .3s }
+.minigui-carousel-updown > * { -webkit-transition: .3s ease-in-out up; transition: .3s ease-in-out up }
+.minigui-carousel-arrow { display: none \9; opacity: 0; position: absolute; left: 10px; top: 50%; margin-top: -18px; width: 36px; height: 36px; line-height: 36px; text-align: center; font-size: 20px; border: 0; border-radius: 50%; background-color: rgba(0, 0, 0, .2); color: #fff; -webkit-transition-duration: .3s; transition-duration: .3s; cursor: pointer }
+.minigui-carousel-arrow[lay-type=add] { left: auto !important; right: 10px }
+.minigui-carousel:hover .minigui-carousel-arrow[lay-type=add], .minigui-carousel[lay-arrow=always] .minigui-carousel-arrow[lay-type=add] { right: 20px }
+.minigui-carousel[lay-arrow=always] .minigui-carousel-arrow { opacity: 1; left: 20px }
+.minigui-carousel[lay-arrow=none] .minigui-carousel-arrow { display: none }
+.minigui-carousel-arrow:hover, .minigui-carousel-ind ul:hover { background-color: rgba(0, 0, 0, .35) }
+.minigui-carousel:hover .minigui-carousel-arrow { display: block \9; opacity: 1; left: 20px }
+.minigui-carousel-ind { position: relative; top: -35px; width: 100%; line-height: 0 !important; text-align: center; font-size: 0 }
+.minigui-carousel[lay-indicator=outside] { margin-bottom: 30px }
+.minigui-carousel[lay-indicator=outside] .minigui-carousel-ind { top: 10px }
+.minigui-carousel[lay-indicator=outside] .minigui-carousel-ind ul { background-color: rgba(0, 0, 0, .5) }
+.minigui-carousel[lay-indicator=none] .minigui-carousel-ind { display: none }
+.minigui-carousel-ind ul { display: inline-block; padding: 5px; background-color: rgba(0, 0, 0, .2); border-radius: 10px; -webkit-transition-duration: .3s; transition-duration: .3s }
+.minigui-carousel-ind li { display: inline-block; width: 10px; height: 10px; margin: 0 3px; font-size: 14px; background-color: #e2e2e2; background-color: rgba(255, 255, 255, .5); border-radius: 50%; cursor: pointer; -webkit-transition-duration: .3s; transition-duration: .3s }
+.minigui-carousel-ind li:hover { background-color: rgba(255, 255, 255, .7) }
+.minigui-carousel-ind li.minigui-this { background-color: #fff }
+.minigui-carousel > [carousel-item] > .minigui-carousel-next, .minigui-carousel > [carousel-item] > .minigui-carousel-prev, .minigui-carousel > [carousel-item] > .minigui-this { display: block }
+.minigui-carousel > [carousel-item] > .minigui-this { left: 0 }
+.minigui-carousel > [carousel-item] > .minigui-carousel-prev { left: -100% }
+.minigui-carousel > [carousel-item] > .minigui-carousel-next { left: 100% }
+.minigui-carousel > [carousel-item] > .minigui-carousel-next.minigui-carousel-left, .minigui-carousel > [carousel-item] > .minigui-carousel-prev.minigui-carousel-right { left: 0 }
+.minigui-carousel > [carousel-item] > .minigui-this.minigui-carousel-left { left: -100% }
+.minigui-carousel > [carousel-item] > .minigui-this.minigui-carousel-right { left: 100% }
+.minigui-carousel[lay-anim=updown] .minigui-carousel-arrow { left: 50% !important; top: 20px; margin: 0 0 0 -18px }
+.minigui-carousel[lay-anim=updown] > [carousel-item] > *, .minigui-carousel[lay-anim=fade] > [carousel-item] > * { left: 0 !important }
+.minigui-carousel[lay-anim=updown] .minigui-carousel-arrow[lay-type=add] { top: auto !important; bottom: 20px }
+.minigui-carousel[lay-anim=updown] .minigui-carousel-ind { position: absolute; top: 50%; right: 20px; width: auto; height: auto }
+.minigui-carousel[lay-anim=updown] .minigui-carousel-ind ul { padding: 3px 5px }
+.minigui-carousel[lay-anim=updown] .minigui-carousel-ind li { display: block; margin: 6px 0 }
+.minigui-carousel[lay-anim=updown] > [carousel-item] > .minigui-this { top: 0 }
+.minigui-carousel[lay-anim=updown] > [carousel-item] > .minigui-carousel-prev { top: -100% }
+.minigui-carousel[lay-anim=updown] > [carousel-item] > .minigui-carousel-next { top: 100% }
+.minigui-carousel[lay-anim=updown] > [carousel-item] > .minigui-carousel-next.minigui-carousel-left, .minigui-carousel[lay-anim=updown] > [carousel-item] > .minigui-carousel-prev.minigui-carousel-right { top: 0 }
+.minigui-carousel[lay-anim=updown] > [carousel-item] > .minigui-this.minigui-carousel-left { top: -100% }
+.minigui-carousel[lay-anim=updown] > [carousel-item] > .minigui-this.minigui-carousel-right { top: 100% }
+.minigui-carousel[lay-anim=fade] > [carousel-item] > .minigui-carousel-next, .minigui-carousel[lay-anim=fade] > [carousel-item] > .minigui-carousel-prev { opacity: 0 }
+.minigui-carousel[lay-anim=fade] > [carousel-item] > .minigui-carousel-next.minigui-carousel-left, .minigui-carousel[lay-anim=fade] > [carousel-item] > .minigui-carousel-prev.minigui-carousel-right { opacity: 1 }
+.minigui-carousel[lay-anim=fade] > [carousel-item] > .minigui-this.minigui-carousel-left, .minigui-carousel[lay-anim=fade] > [carousel-item] > .minigui-this.minigui-carousel-right { opacity: 0 }
+.minigui-fixbar { position: fixed; right: 15px; bottom: 15px; z-index: 9999 }
+.minigui-fixbar li { width: 50px; height: 50px; line-height: 50px; margin-bottom: 1px; text-align: center; cursor: pointer; font-size: 30px; background-color: #9F9F9F; color: #fff; border-radius: 2px; opacity: .95 }
+.minigui-fixbar li:hover { opacity: .85 }
+.minigui-fixbar li:active { opacity: 1 }
+.minigui-fixbar .minigui-fixbar-top { display: none; font-size: 40px }
+body .minigui-util-face { border: none; background: 0 0 }
+body .minigui-util-face .minigui-layer-content { padding: 0; background-color: #fff; color: #666; box-shadow: none }
+.minigui-util-face .minigui-layer-TipsG { display: none }
+.minigui-util-face ul { position: relative; width: 372px; padding: 10px; border: 1px solid #D9D9D9; background-color: #fff; box-shadow: 0 0 20px rgba(0, 0, 0, .2) }
+.minigui-util-face ul li { cursor: pointer; float: left; border: 1px solid #e8e8e8; height: 22px; width: 26px; overflow: hidden; margin: -1px 0 0 -1px; padding: 4px 2px; text-align: center }
+.minigui-util-face ul li:hover { position: relative; z-index: 2; border: 1px solid #eb7350; background: #fff9ec }
+.minigui-anim { -webkit-animation-duration: .3s; animation-duration: .3s; -webkit-animation-fill-mode: both; animation-fill-mode: both }
+.minigui-anim.minigui-icon { display: inline-block }
+.minigui-anim-loop { -webkit-animation-iteration-count: infinite; animation-iteration-count: infinite }
+@-webkit-keyframes minigui-rotate {
+    from { -webkit-transform: rotate(0) }
+    to { -webkit-transform: rotate(360deg) }
+}
+@keyframes minigui-rotate {
+    from { transform: rotate(0) }
+    to { transform: rotate(360deg) }
+}
+.minigui-anim-rotate { -webkit-animation-name: minigui-rotate; animation-name: minigui-rotate; -webkit-animation-duration: 1s; animation-duration: 1s; -webkit-animation-timing-function: linear; animation-timing-function: linear }
+@-webkit-keyframes minigui-up {
+    from { -webkit-transform: translate3d(0, 100%, 0); opacity: .3 }
+    to { -webkit-transform: translate3d(0, 0, 0); opacity: 1 }
+}
+@keyframes minigui-up {
+    from { transform: translate3d(0, 100%, 0); opacity: .3 }
+    to { transform: translate3d(0, 0, 0); opacity: 1 }
+}
+.minigui-anim-up { -webkit-animation-name: minigui-up; animation-name: minigui-up }
+@-webkit-keyframes minigui-upbit {
+    from { -webkit-transform: translate3d(0, 30px, 0); opacity: .3 }
+    to { -webkit-transform: translate3d(0, 0, 0); opacity: 1 }
+}
+@keyframes minigui-upbit {
+    from { transform: translate3d(0, 30px, 0); opacity: .3 }
+    to { transform: translate3d(0, 0, 0); opacity: 1 }
+}
+.minigui-anim-upbit { -webkit-animation-name: minigui-upbit; animation-name: minigui-upbit }
+@-webkit-keyframes minigui-scale {
+    0% { opacity: .3; -webkit-transform: scale(.5) }
+    100% { opacity: 1; -webkit-transform: scale(1) }
+}
+@keyframes minigui-scale {
+    0% { opacity: .3; -ms-transform: scale(.5); transform: scale(.5) }
+    100% { opacity: 1; -ms-transform: scale(1); transform: scale(1) }
+}
+.minigui-anim-scale { -webkit-animation-name: minigui-scale; animation-name: minigui-scale }
+@-webkit-keyframes minigui-scale-spring {
+    0% { opacity: .5; -webkit-transform: scale(.5) }
+    80% { opacity: .8; -webkit-transform: scale(1.1) }
+    100% { opacity: 1; -webkit-transform: scale(1) }
+}
+@keyframes minigui-scale-spring {
+    0% { opacity: .5; transform: scale(.5) }
+    80% { opacity: .8; transform: scale(1.1) }
+    100% { opacity: 1; transform: scale(1) }
+}
+.minigui-anim-scaleSpring { -webkit-animation-name: minigui-scale-spring; animation-name: minigui-scale-spring }
+@-webkit-keyframes minigui-fadein {
+    0% { opacity: 0 }
+    100% { opacity: 1 }
+}
+@keyframes minigui-fadein {
+    0% { opacity: 0 }
+    100% { opacity: 1 }
+}
+.minigui-anim-fadein { -webkit-animation-name: minigui-fadein; animation-name: minigui-fadein }
+@-webkit-keyframes minigui-fadeout {
+    0% { opacity: 1 }
+    100% { opacity: 0 }
+}
+@keyframes minigui-fadeout {
+    0% { opacity: 1 }
+    100% { opacity: 0 }
+}
+.minigui-anim-fadeout { -webkit-animation-name: minigui-fadeout; animation-name: minigui-fadeout }
