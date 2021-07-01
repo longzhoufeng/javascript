@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <!-- import CSS -->
+    <link rel="stylesheet" href="lib/theme-chalk/index.css">
+    <style scope>
+      .input-99 {
+        width: 99%;
+        float: left;
+        margin-right: 1%;
+      }
+      .input-half {
+        width: 49%;
+        float: left;
+        margin-right: 1%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <m-form :model="dynamicValidateForm" ref="dynamicValidateForm" label-width="100px" class="demo-dynamic">
+        <m-form-item
+    prop="email"
+    label="邮箱"
+    :rules="[
+      { required: true, message: '请输入邮箱地址', trigger: 'blur' },
+      { type: 'email', message: '请输入正确的邮箱地址', trigger: ['blur', 'change'] }
+    ]"
+  >
+          <m-input v-model="dynamicValidateForm.email" class="input-99"></m-input>
+        </m-form-item>
+        <m-form-item
+    v-for="(item, index) in dynamicValidateForm.domains"
+    :label="'邮箱' + index"
+    :key="item.key+index"
+    :prop="'domains.' + index + '.value'"
+    :rules="checkEmail"
+  >
+          <m-input v-model="item.key" class="input-half"></m-input>
+          <m-input v-model="item.value" placeholder="请输入邮箱" class="input-half">
+            <m-button slot="append" @click.prevent="removeDomain(item)">删除</m-button>
+          </m-input>
+
+        </m-form-item>
+        <m-form-item>
+          <m-button type="primary" @click="submitForm('dynamicValidateForm')">提交</m-button>
+          <m-button @click="addDomain">新增邮箱</m-button>
+          <m-button @click="resetForm('dynamicValidateForm')">重置</m-button>
+        </m-form-item>
+      </m-form>
+    </div>
+  </body>
+  <!-- import Vue before Minigui -->
+  <script src="./vue.js"></script>
+  <!-- import JavaScript -->
+  <script src="lib/index.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data: function () {
+        var isEmail = (rule, value, callback) => {
+          if (value === "") {
+            callback(new Error("请输入邮箱地址"));
+          } else {
+            if (value !== "") {
+              const reg = /^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
+              if (!reg.test(value)) {
+                callback(new Error("请输入有效的邮箱"));
+              }
+            }
+            callback();
+          }
+        };
+        return {
+          visible: false,
+          dynamicValidateForm: {
+            domains: [
+              {
+                key: '',
+                value: ''
+              }
+            ]
+          },
+          checkEmail: [
+            {
+              required: true,
+              validator: isEmail,
+              trigger: "blur"
+            }
+          ]
+        }
+      },
+      methods: {
+        submitForm(formName) {
+          this
+            .$refs[formName]
+            .validate((valid) => {
+              if (valid) {
+                alert('submit!');
+              } else {
+                console.log('error submit!!');
+                return false;
+              }
+            });
+        },
+        resetForm(formName) {
+          this
+            .$refs[formName]
+            .resetFields();
+        },
+        removeDomain(item) {
+          var index = this
+            .dynamicValidateForm
+            .domains
+            .indexOf(item)
+          if (index !== -1) {
+            this
+              .dynamicValidateForm
+              .domains
+              .splice(index, 1)
+          }
+        },
+        addDomain() {
+          this
+            .dynamicValidateForm
+            .domains
+            .push({value: "", key: ""});
+        }
+      }
+    })
+  </script>
+</html>
